@@ -1,0 +1,56 @@
+はてなダイアリーから"Groovy"を含むエントリーを拾ってTwitterにつぶやくBot
+http://twitter.com/hatena_groovy
+
+Ver 5: 2011/08/22 Gaelyk-1.0に移行
+Ver 4: 2010/09/05 OAuth対応
+Ver 1: 2009/08/31 first release
+
+作成者: Nobuhiro Sue
+  http://d.hatena.ne.jp/nobusue
+  http://twitter.com/nobusue
+
+動作環境: Google AppEngine for Java (https://appengine.google.com/)
+  Gaelyk(http://gaelyk.appspot.com/)を使っています。
+    注)kskyさんによる日本語訳 http://dl.getdropbox.com/u/132573/Gaelyk-Tutorial.html
+  Twitter4J(http://yusuke.homeip.net/twitter4j/ja/index.html)を使っています
+
+依存ライブラリ:
+GAEJ-1.5.2
+Gaelyk-1.0
+Groovy-1.8.1
+Twitter4j-2.2.4
+
+作者より:
+あちこち不恰好なところが残っていて恥ずかしいのですが、参考になればと思い晒します。
+Gaelykの威力を目の当たりにして驚愕してください。
+
+解説:
+[war/WEB-INF/groovy/getEntries.groovy]
+メインの処理を行っています。
+TwitterのOAuth設定は/WEB-INF/classes/twitter4j.propertiesに記述してください。
+11行目 参照するFeedを指定していますので、ここを変えれば他のFeedも監視できます。
+39行目 すでにつぶやき済みかどうかをチェックしています
+47-52行目 GAE DatastoreのLow Level APIを利用して、つぶやいたエントリを記録しています。
+60行目 簡易キーワードフィルターです。除外する単語を含むエントリをはねています。
+
+[war/WEB-INF/pages/result.gtpl]
+getEntries.groovyの実行結果を表示します。
+
+[war/WEB-INF/pages/entries.gtpl]
+つぶやき済みエントリの一覧を表示します。
+
+[war/WEB-INF/cron.xml]
+GAE/J上で自動実行するための設定です。
+cronタスクを登録する場合、コメントアウトを外してください。
+
+[war/WEB-INF/appengine-web.xml]
+GAE/Jの設定です。日本語はUTF-8で統一してあります。
+<application>と<version>は適宜指定してください。
+
+
+ToDo:
+- 複数キーワード対応
+- フィルター機能をもうちょっと賢くする(ベイジアンフィルター化)
+- 除外キーワードリストをWebからメンテナンス可能にする
+
+以上
