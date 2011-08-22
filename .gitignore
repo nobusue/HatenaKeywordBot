@@ -1,2 +1,8 @@
+.gradle
+build
 war/WEB-INF/appengine-generated
 war/WEB-INF/classes/twitter4j.properties
+war/WEB-INF/lib/appengine-api-1.0-sdk-1.5.2.jar
+war/WEB-INF/lib/appengine-api-labs-1.5.2.jar
+war/WEB-INF/lib/gaelyk-1.0.jar
+war/WEB-INF/lib/groovy-all-1.8.1.jar
