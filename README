@@ -27,11 +27,10 @@
  Gaelykの威力を目の当たりにして驚愕してください。
 
 * 利用方法
- gradle gaeRun		:ローカルサーバー起動
- gradle gaeUpload	:GAEにデプロイ
- gradle war			:war生成
- gradle tasks		:タスク一覧
-Windows環境では"gradle"ではなく"gradlew"コマンドを利用してください。
+ gradlew gaeRun		:ローカルサーバー起動
+ gradlew gaeUpload	:GAEにデプロイ
+ gradlew war			:war生成
+ gradlew tasks		:タスク一覧
 
 * 主要部分解説
 [war/WEB-INF/groovy/getEntries.groovy]
