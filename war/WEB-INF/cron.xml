@@ -3,7 +3,7 @@
   <cron>
     <url>/getEntries</url>
     <description>Tweet new Groovy entries on Hatena Diary</description>
-    <schedule>every 5 minutes</schedule>
+    <schedule>every 10 minutes</schedule>
   </cron>
 <!--
 -->
